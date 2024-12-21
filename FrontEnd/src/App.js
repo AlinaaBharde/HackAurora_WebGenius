@@ -202,10 +202,19 @@ import AppLayout from "./components/taskManager/AppLayout";
 import KeshavPage from "./pages/KeshavPage";
 import { Toaster } from "react-hot-toast";
 
+
+// videoSDK from sanskar
+import VideoSW from "./pages/VideoSW"
+
+
+
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [Projects, setProjects] = useState([]);
   const [todo, setTodo] = useState([]);
+  // videoSDk
+
 
   return (
     <>
@@ -234,6 +243,8 @@ function App() {
             <Route path="/Home/notes" element={<Notes notes={notes} setNotes={setNotes} toast={toast} />} />
             <Route path="/Home/Project" element={<Project toast={toast} Projects={Projects} setProjects={setProjects} />} />
           </Route>
+
+          <Route path="/video" element={<VideoSW />} />
 
           {/* Task Manager Routes */}
           <Route path="/task" element={<TM />} />

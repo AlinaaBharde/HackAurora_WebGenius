@@ -3,8 +3,8 @@ import "./notification.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-const Notification = ({ closeNotifi, upcomingTasks }) => {
-  console.log(upcomingTasks);
+const Notification = ({ closeNotifi, upcomingProjects }) => {
+  console.log(upcomingProjects);
   useEffect(() => {
     Aos.init({ duration: 500 });
   }, []);
@@ -16,18 +16,18 @@ const Notification = ({ closeNotifi, upcomingTasks }) => {
       onClick={(e) => e.stopPropagation()}
     >
       <div className="not-header">
-        <h3>Today's Tasks</h3>
+        <h3>Today's Projects</h3>
         <button onClick={closeNotifi}>X</button>
       </div>
       <div className="not-items">
-        {upcomingTasks.length === 0 && (
-          <h4 id="no-tasks">No Tasks for Today</h4>
+        {upcomingProjects.length === 0 && (
+          <h4 id="no-Projects">No Projects for Today</h4>
         )}
 
-        {upcomingTasks.map((eachTask) => (
-          <div key={eachTask.id} className="not-each-item">
-            <h4>{eachTask.task.taskName}</h4>
-            <h4>Priority : {eachTask.task.priority}</h4>
+        {upcomingProjects.map((eachProject) => (
+          <div key={eachProject.id} className="not-each-item">
+            <h4>{eachProject.Project.ProjectName}</h4>
+            <h4>Priority : {eachProject.Project.priority}</h4>
           </div>
         ))}
       </div>

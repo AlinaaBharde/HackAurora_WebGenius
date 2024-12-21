@@ -1,37 +1,37 @@
-const taskRoutes = require("express").Router();
+const ProjectRoutes = require("express").Router();
 const dataModel = require("../Models/DataModel");
 
-taskRoutes.get("/getTask", async (req, res) => {
+ProjectRoutes.get("/getProject", async (req, res) => {
   const { _id } = req.user;
-  const newTask = new dataModel({
+  const newProject = new dataModel({
     _id: _id,
   });
-  let task = await dataModel.findById(_id);
-  if (!task) task = await newTask.save();
-  console.log(task.tasks);
-  res.json(task.tasks);
+  let Project = await dataModel.findById(_id);
+  if (!Project) Project = await newProject.save();
+  console.log(Project.Projects);
+  res.json(Project.Projects);
 });
 
-taskRoutes.post("/postTask", async (req, res) => {
+ProjectRoutes.post("/postProject", async (req, res) => {
   const { _id } = req.user;
-  const newTask = req.body;
+  const newProject = req.body;
   await dataModel
-    .findByIdAndUpdate({ _id: _id }, { $push: { tasks: newTask } })
+    .findByIdAndUpdate({ _id: _id }, { $push: { Projects: newProject } })
     .catch((err) => {
       console.log(err);
     });
   res.json({ success: "Posted Successfully" });
 });
 
-taskRoutes.patch("/updateTask/:id", async (req, res) => {
+ProjectRoutes.patch("/updateProject/:id", async (req, res) => {
   const { id } = req.params;
   const { done } = req.body;
   await dataModel
     .findOneAndUpdate(
-      { "tasks.id": id },
+      { "Projects.id": id },
       {
         $set: {
-          "tasks.$.done": done,
+          "Projects.$.done": done,
         },
       },
       { new: true }
@@ -42,15 +42,15 @@ taskRoutes.patch("/updateTask/:id", async (req, res) => {
   res.json({ success: "Updated successfully" });
 });
 
-taskRoutes.delete("/deleteTask/:id", async (req, res) => {
+ProjectRoutes.delete("/deleteProject/:id", async (req, res) => {
   const { _id } = req.user;
   const { id } = req.params;
   await dataModel
-    .findByIdAndUpdate(_id, { $pull: { tasks: { id: id } } })
+    .findByIdAndUpdate(_id, { $pull: { Projects: { id: id } } })
     .catch((err) => {
       console.log(err);
     });
   res.json({ success: "Deleted successfully" });
 });
 
-module.exports = taskRoutes;
+module.exports = ProjectRoutes;

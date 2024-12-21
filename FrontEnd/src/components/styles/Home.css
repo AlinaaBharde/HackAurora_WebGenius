@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,400;1,500;1,600&display=swap"); /* :root {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,400;1,500;1,600&display=swap");
+/* :root {
   --nav : #86A789;
   --prof: #B2C8BA;
   --bg: #EBF3E8;
@@ -21,6 +22,7 @@
   display: flex;
   background: var(--bg);
 }
+
 nav {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
     0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
@@ -33,13 +35,16 @@ nav {
   margin: 15px;
   border-radius: 15px;
 }
+
 nav :first-child {
   margin-bottom: auto;
   pointer-events: none;
 }
+
 nav :last-child {
   margin-top: auto;
 }
+
 nav button {
   border: 0;
   outline: none;
@@ -50,6 +55,7 @@ nav button {
   cursor: pointer;
   margin: 10px 0;
 }
+
 img {
   height: 35px;
   width: 35px;
@@ -59,6 +65,7 @@ nav button:not(:first-child):hover {
   background-color: rgb(15, 14, 14);
   border-radius: 100%;
 }
+
 .home-body-conatiner {
   width: 100%;
   background-color: var(--grey);
@@ -71,6 +78,7 @@ nav button:not(:first-child):hover {
   flex-direction: column;
   padding: 15px;
 }
+
 .profile {
   width: 35%;
   background-color: var(--prof);
@@ -83,30 +91,36 @@ nav button:not(:first-child):hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
     0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
+
 .profile-div {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
   align-items: center;
 }
+
 .profile-div :first-child {
   margin-right: auto;
 }
+
 .profile-div button {
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
 }
+
 #prof {
   border: 2px solid var(--bg);
   width: 35px;
   height: 35px;
   border-radius: 50%;
 }
+
 #prof-img {
   border-radius: 50%;
 }
+
 #noti-count {
   color: white;
   background-color: red;
@@ -118,42 +132,54 @@ nav button:not(:first-child):hover {
   top: -16px;
   /* margin-bottom: 10px; */
 }
+
 .bell {
   animation: shake 2s infinite;
 }
+
 @keyframes shake {
   0% {
     transform: rotate(0);
   }
+
   15% {
     transform: rotate(5deg);
   }
+
   30% {
     transform: rotate(-5deg);
   }
+
   45% {
     transform: rotate(4deg);
   }
+
   60% {
     transform: rotate(-4deg);
   }
+
   75% {
     transform: rotate(2deg);
   }
+
   85% {
     transform: rotate(-2deg);
   }
+
   92% {
     transform: rotate(1deg);
   }
+
   100% {
     transform: rotate(0);
   }
 }
+
 .calendar-div {
   width: 100%;
   border: 1px solid black;
 }
+
 .quote-div {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   height: 200px;
@@ -163,6 +189,7 @@ nav button:not(:first-child):hover {
   color: var(--text);
   background-color: var(--bg);
 }
+
 .quote-div h3 {
   height: 85%;
   font-size: 16px;
@@ -172,6 +199,7 @@ nav button:not(:first-child):hover {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
+
 .quote-div h4 {
   font-size: 13px;
   font-style: italic;
@@ -179,21 +207,25 @@ nav button:not(:first-child):hover {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
+
 hr {
   color: var(--text);
   height: 3px;
   background-color: var(--text);
 }
+
 .quote-footer {
   display: flex;
   height: 30px;
   justify-content: space-between;
   margin-top: 5px;
 }
+
 #auth-name {
   font-weight: 600;
   color: var(--text);
 }
+
 .quote-footer button {
   border: 0;
   margin: 0;
@@ -201,6 +233,7 @@ hr {
   background-color: inherit;
   cursor: pointer;
 }
+
 .search-bar {
   display: flex;
   justify-content: flex-end;
@@ -211,6 +244,7 @@ hr {
   margin-bottom: 20px;
   transition: 0.5s;
 }
+
 .search-bar h1 {
   color: var(--text);
   font-weight: 500;
@@ -224,9 +258,11 @@ hr {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
     0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
+
 #dash-header {
   margin-bottom: 10px;
 }
+
 .search-bar input {
   margin: none;
   height: 40px;
@@ -240,10 +276,12 @@ hr {
   color: var(--text);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 ::placeholder {
   color: var(--text);
   opacity: 0.5;
 }
+
 #search-bt {
   border: none;
   margin: none;
@@ -255,6 +293,7 @@ hr {
   position: absolute;
   background-color: var(--serBar);
 }
+
 .body-content {
   display: grid;
   grid-template-columns: minmax(100px, 425px) minmax(100px, 425px);
@@ -265,6 +304,7 @@ hr {
     "notes todo"
     "stats todo";
 }
+
 .notes,
 .todos,
 .stats {
@@ -273,9 +313,11 @@ hr {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   height: 100%;
 }
+
 .notes {
   grid-area: notes;
 }
+
 .todos {
   grid-area: todo;
 }
@@ -293,12 +335,14 @@ hr {
   height: 35px;
   padding: 10px 15px 10px 20px;
 }
+
 .con-head p {
   font-weight: 500;
   letter-spacing: 0.2px;
   pointer-events: none;
   color: var(--text);
 }
+
 #all {
   margin: 0;
   border: 0;
@@ -306,6 +350,7 @@ hr {
   background-color: transparent;
   cursor: pointer;
 }
+
 .scroller {
   max-width: 100%;
   padding-left: 8px;
@@ -318,10 +363,12 @@ hr {
   overflow: hidden;
   border-radius: 0 0 8px 8px;
 }
+
 .todo-scroll {
   margin-top: auto;
   overflow: hidden;
 }
+
 .scroller-inner {
   /* padding-block: 10px; */
   padding-top: 7px;
@@ -333,38 +380,49 @@ hr {
   min-width: 425px;
   animation: slide 18s infinite;
 }
+
 @keyframes slide {
   0% {
     transform: translateX(0);
   }
+
   20% {
     transform: translateX(0);
   }
+
   30% {
     transform: translateX(-50%);
   }
+
   40% {
     transform: translateX(-50%);
   }
+
   50% {
     transform: translateX(-100%);
   }
+
   60% {
     transform: translateX(-100%);
   }
+
   70% {
     transform: translateX(-149%);
   }
+
   80% {
     transform: translateX(-149%);
   }
+
   90% {
     transform: translateX(-199%);
   }
+
   100% {
     transform: translateX(-199%);
   }
 }
+
 #dash-note-con {
   /* margin-top: 5px; */
   height: 180px;
@@ -376,12 +434,14 @@ hr {
   max-width: 212px;
   pointer-events: none;
 }
+
 .dash-todo-con {
   margin-top: 7px;
   display: flex;
   flex-direction: column;
   padding: 0 5px;
 }
+
 #lists {
   border: none;
   height: 250px;
@@ -390,9 +450,11 @@ hr {
   border-radius: 0 0 10px 10px;
   margin-top: 17px;
 }
-#dash-task-con {
+
+#dash-Project-con {
   height: 210px;
 }
+
 .scroller-con {
   height: 200px;
   letter-spacing: 0.3px;
@@ -408,33 +470,41 @@ hr {
   font-weight: 400;
   pointer-events: none;
 }
+
 .dots {
   display: flex;
   gap: 5px;
   margin-bottom: 10px;
 }
+
 .scroller-con p {
   height: 10px;
   width: 10px;
   border-radius: 50%;
 }
+
 #one {
   background-color: rgb(214, 79, 79);
 }
+
 #two {
   background-color: rgb(255, 255, 120);
 }
+
 #three {
   background-color: rgb(134, 228, 134);
 }
+
 #scroller-con-col {
   font-weight: 600;
   font-style: none;
 }
+
 .con-todo {
   height: 460px;
 }
-#dash-task-con {
+
+#dash-Project-con {
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -448,16 +518,19 @@ hr {
   pointer-events: none;
   padding: 10px;
 }
-#dash-task-con h4 {
+
+#dash-Project-con h4 {
   font-size: 14px;
   font-style: normal;
   font-family: "Montserrat", sans-serif;
 }
+
 #dash-goto-bt {
   border: 1px solid black;
   position: relative;
   z-index: 10;
 }
+
 /* skeleton */
 
 h1 {
@@ -468,6 +541,7 @@ h1 {
   0% {
     background-color: hsl(200, 20%, 70%);
   }
+
   100% {
     background-color: hsl(200, 20%, 95%);
   }

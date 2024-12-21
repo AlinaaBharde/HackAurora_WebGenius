@@ -2,13 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import BeatLoader from "react-spinners/BeatLoader";
 import "./styles/Home.css";
-import Navbar from "./Navbar";
+import Navbar from "./NavbarAB";
 import Profile from "./Profile";
 import { Outlet } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-const Home = ({ tasks }) => {
+const Home = ({ Projects }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Home = ({ tasks }) => {
         <div className="main-home-container" data-aos="zoom-out">
           <Navbar />
           <Outlet />
-          <Profile tasks={tasks} />
+          <Profile Projects={Projects} />
         </div>
       )}
     </>

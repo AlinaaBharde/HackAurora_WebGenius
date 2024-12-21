@@ -9,11 +9,11 @@ import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-const Profile = ({ tasks }) => {
+const Profile = ({ Projects }) => {
   const [quote, setQuote] = useState();
   const [author, setAuthor] = useState();
   const [user, setUser] = useState();
-  const [upcomingTasks, setUpcomingTasks] = useState([]);
+  const [upcomingProjects, setUpcomingProjects] = useState([]);
   const [dialog, setDialog] = useState({
     isLoading: false,
   });
@@ -38,19 +38,19 @@ const Profile = ({ tasks }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/task/getTask`)
+      .get(`${process.env.REACT_APP_API_URL}/Project/getProject`)
       .then((res) => {
         let temp = res.data.filter(
           (obj) =>
             obj.done === false &&
-            obj.task.deadline === new Date().toISOString().split("T")[0]
+            obj.Project.deadline === new Date().toISOString().split("T")[0]
         );
-        setUpcomingTasks(temp);
+        setUpcomingProjects(temp);
       })
       .catch((err) => console.log(err));
-  }, [tasks]);
+  }, [Projects]);
 
-  console.log(upcomingTasks);
+  console.log(upcomingProjects);
 
   const reloadQuote = () => {
     fetch("http://api.quotable.io/random")
@@ -73,10 +73,10 @@ const Profile = ({ tasks }) => {
         <div className="profile-div">
           <DarkMode />
           <button
-            className={`${upcomingTasks.length ? " bell" : ""}`}
+            className={`${upcomingProjects.length ? " bell" : ""}`}
             onClick={openNotifi}
           >
-            <span id="noti-count">{upcomingTasks.length}</span>
+            <span id="noti-count">{upcomingProjects.length}</span>
             <span>
               <IoMdNotifications size={25} color="#3081D0" />
             </span>
@@ -91,7 +91,7 @@ const Profile = ({ tasks }) => {
         {dialog.isLoading && (
           <Notification
             closeNotifi={closeNotifi}
-            upcomingTasks={upcomingTasks}
+            upcomingProjects={upcomingProjects}
           />
         )}
         <Calendar />

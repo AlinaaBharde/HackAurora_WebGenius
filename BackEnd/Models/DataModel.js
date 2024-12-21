@@ -20,11 +20,11 @@ const noteSchema = new mongoose.Schema(
   { _id: false }
 );
 
-const currTaskSchema = new mongoose.Schema(
+const currProjectSchema = new mongoose.Schema(
   {
     id: { type: String },
-    task: {
-      taskName: { type: String },
+    Project: {
+      ProjectName: { type: String },
       priority: { type: String },
       deadline: { type: String },
     },
@@ -44,8 +44,8 @@ const schema = new mongoose.Schema({
   notes: {
     type: [noteSchema],
   },
-  tasks: {
-    type: [currTaskSchema],
+  Projects: {
+    type: [currProjectSchema],
   },
 });
 

@@ -26,7 +26,7 @@ const MainTodo = ({ todo, setTodo }) => {
             <span id="scroller-con-col">" Efficiency at Your Fingertips."</span>
             <br />
             <br />
-            Welcome to Todo, your go-to todo app for seamless task management.
+            Welcome to Todo, your go-to todo app for seamless project management.
           </div>
           <div className="scroller-con">
             <div className="dots">
@@ -45,7 +45,7 @@ const MainTodo = ({ todo, setTodo }) => {
               <p id="two"></p>
               <p id="three"></p>
             </div>
-            Add, Edit and Delete your tasks effortlessly.
+            Add, Edit and Delete your projects effortlessly.
             <br />
             <br />
             <span id="scroller-con-col">" Anytime, Anywhere Access." </span>
@@ -60,7 +60,7 @@ const MainTodo = ({ todo, setTodo }) => {
             <br />
             <br />
             <span id="scroller-con-col">
-              " Your task todo's in safe hands."
+              " Your project todo's in safe hands."
             </span>
           </div>
           <div className="scroller-con">

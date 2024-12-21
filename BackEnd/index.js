@@ -11,7 +11,7 @@ const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const TodoRoutes = require("./Routes/TodoRoutes");
 const NoteRoutes = require("./Routes/NoteRoutes");
-const TaskRoutes = require("./Routes/TaskRoutes");
+const ProjectRoutes = require("./Routes/ProjectRoutes");
 
 const PORT = 8080;
 
@@ -162,7 +162,7 @@ app.post("/forgotpass", async (req, res) => {
     var mailOptions = {
       from: "jhonmoorthi85131@gmail.com",
       to: email,
-      subject: "Forgot password for task manager",
+      subject: "Forgot password for Project manager",
       text: `${process.env.FRONTEND_DOMAIN}/ResetPass/${user._id}/${token}`,
     };
 
@@ -184,7 +184,7 @@ const authenticator = (req, res, next) => {
 };
 app.use("/todo", [authenticator, TodoRoutes]);
 app.use("/note", [authenticator, NoteRoutes]);
-app.use("/task", [authenticator, TaskRoutes]);
+app.use("/Project", [authenticator, ProjectRoutes]);
 
 app.listen(PORT, () => {
   console.log(`Server Running On Port : ${PORT} `);

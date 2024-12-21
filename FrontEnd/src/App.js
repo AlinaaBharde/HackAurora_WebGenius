@@ -1,5 +1,5 @@
 import Toggler from "./components/Toggler";
-import Task from "./components/Task";
+import Project from "./components/Project";
 import Home from "./components/Home";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,14 +11,21 @@ import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
 import { useState } from "react";
 
+// Authentication imports
+import Register from './pages/RegisterSW'
+import LoginPage from './pages/LoginSW';
+import { useFirebase } from './context/FirebaseSW';
 function App() {
+  const firebase = useFirebase();
+
   const [notes, setNotes] = useState([]);
-  const [tasks, setTasks] = useState([]);
+  const [Projects, setProjects] = useState([]);
   const [todo, setTodo] = useState([]);
 
   return (
-    <BrowserRouter>
-      <ToastContainer
+    <>
+
+      {/* <ToastContainer
         position="top-center"
         autoClose={800}
         hideProgressBar={false}
@@ -29,23 +36,27 @@ function App() {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
       <Routes>
-        <Route path="/" element={<Toggler toast={toast} />}></Route>
+        {/* Authentication Routes */}
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
+        {/* DashBoard Routes */}
+        {/* <Route path="/" element={<Toggler toast={toast} />}></Route> */}
         <Route path="/ForgotPass" element={<ForgotPass toast={toast} />} />
         <Route
           path="/ResetPass/:id/:token"
           element={<ResetPass toast={toast} />}
         />
-        <Route path="/Home" element={<Home tasks={tasks} />}>
+        <Route path="/Home" element={<Home Projects={Projects} />}>
           <Route
             index
             element={
               <Dashboard
                 notes={notes}
                 setNotes={setNotes}
-                tasks={tasks}
-                setTasks={setTasks}
+                Projects={Projects}
+                setProjects={setProjects}
                 todo={todo}
                 setTodo={setTodo}
               />
@@ -60,12 +71,18 @@ function App() {
             element={<Notes notes={notes} setNotes={setNotes} toast={toast} />}
           />
           <Route
-            path="/Home/task"
-            element={<Task toast={toast} tasks={tasks} setTasks={setTasks} />}
+            path="/Home/Project"
+            element={<Project toast={toast} Projects={Projects} setProjects={setProjects} />}
           />
+
+
+
         </Route>
       </Routes>
-    </BrowserRouter>
+
+    </>
+
+
   );
 }
 

@@ -5,7 +5,7 @@ import AppLayout from '../components/taskManager/AppLayout'; // Adjust path as n
 import { Toaster } from 'react-hot-toast';
 import Sidebar from '../components/taskManager/Sidebar'
 
-
+import img from './image.png'
 // function TaskManager() {
 //     console.log('render app..');
 //     return (
@@ -59,7 +59,7 @@ function TM({ showDetails }) {
 function Welcome() {
     return (
         <div className="flex flex-col items-center w-full pt-10">
-            <img src="./image/welcome.svg" className="w-5/12" alt="Welcome" />
+            <img src={img} className="w-5/12" alt="Welcome" style={{height:460,width:480}}/>
             <h1 className="text-lg text-gray-600">Select or create a new project</h1>
         </div>
     );

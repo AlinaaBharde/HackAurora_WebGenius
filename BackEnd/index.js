@@ -28,10 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', api);
 
 
-const sessionStore = new MongoStore({
-  mongoUrl: process.env.MONGO_URL,
+// const sessionStore = new MongoStore({
+//   mongoUrl: process.env.MONGO_URL,
 
-});
+// });
 // app.use(
 //   session({
 //     secret: process.env.SESSION_SECRET,
@@ -201,7 +201,7 @@ app.use("/Project", [ProjectRoutes]);
 app.listen(PORT, () => {
   console.log(`Server Running On Port : ${PORT} `);
 });
-mongoose.connect('mongodb+srv://webgenius:webgenius%40123@technohack.8glxx.mongodb.net/?retryWrites=true&w=majority&appName=TechnoHack', {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

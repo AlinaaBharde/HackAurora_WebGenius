@@ -83,8 +83,9 @@ const Profile = ({ Projects }) => {
         <button
           className={`${upcomingProjects.length ? " bell" : ""}`}
           onClick={openNotifi}
+          style={{paddingLeft:50}}
         >
-          <span id="noti-count">{upcomingProjects.length}</span>
+          <span style={{height:20,width:20}} id="noti-count">{upcomingProjects.length}</span>
           <span>
             <IoMdNotifications size={25} color="#3081D0" />
           </span>

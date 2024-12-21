@@ -273,16 +273,20 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="py-5">
+        <div className="py-5 px-5" style={{width:300}}>
             <div className="px-4 mb-3 flex items-center justify-between">
-                <span className="">Members</span>
+                <span className="" style={{
+    font: "-moz-initial",
+    fontWeight: "bold",
+    fontSize: "1.5rem" // Use a valid unit like 'rem', 'px', or 'em'
+  }}>Members</span>
                 <button onClick={openModal} className="bg-indigo-200 rounded-full p-[2px] focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-offset-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-indigo-600">
                         <path fillRule="evenodd" d="M12 5.25a.75.75 0 01.75.75v5.25H18a.75.75 0 010 1.5h-5.25V18a.75.75 0 01-1.5 0v-5.25H6a.75.75 0 010-1.5h5.25V6a.75.75 0 01.75-.75z" clipRule="evenodd" />
                     </svg>
                 </button>
             </div>
-            <ul className="border-r border-gray-300 pr-2">
+            <ul className="pr-2">
                 {/* <Link to="/overall" onClick={(e) => handleLocation(e)}>
                     <li className={`px-5 py-1.5 mb-1 text-gray-600 font text-sm capitalize select-none hover:text-indigo-600 rounded transition-colors hover:bg-indigo-200/80 ${paramsWindow === 'overall' && 'text-indigo-600 bg-indigo-200/80'}`} onClick={getOverallTasks}>
                         Overall Project ({totalTasks} Tasks)

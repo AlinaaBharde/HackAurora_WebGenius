@@ -59,13 +59,13 @@ const MainProject = ({ Projects, setProjects }) => {
           <br />
           <FaHandPointRight size={30} style={{ marginLeft: "50%" }} />
         </div>
-        {Projects.map((eachProject) => (
+        {/* {Projects.map((eachProject) => (
           <div id="dash-Project-con" key={eachProject.id}>
             <h4>Project Name : {eachProject.Project.ProjectName}</h4>
             <h4>Priority : {eachProject.Project.priority}</h4>
             <h4>Deadline : {eachProject.Project.deadline}</h4>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

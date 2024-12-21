@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useFirebase } from "../context/FirebaseSW";
 import { useNavigate } from "react-router-dom";
+import LoginLottie from "../components/lottie/login";
 const RegisterPage = () => {
   const firebase = useFirebase();
   let navigate = useNavigate();
@@ -21,13 +22,13 @@ const RegisterPage = () => {
   }, [navigate, firebase])
   return (
 
-    <div class="flex flex-col justify-center items-center font-[sans-serif] bg-white md:h-screen">
-      <div class="grid md:grid-cols-2 items-center gap-y-8 max-w-7xl w-full shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] m-6 rounded-xl relative overflow-hidden">
-        <div class="max-md:order-1 p-4 bg-gray-50 h-full">
-          <img src="https://readymadeui.com/signin-image.webp" class="lg:max-w-[90%] w-full h-full object-contain block mx-auto" alt="login-image" />
+    <div class="flex flex-col justify-center items-center font-[sans-serif]  md:h-screen">
+      <div class="grid md:grid-cols-2 items-center gap-y-8 max-w-7xl w-full bg-slate-50 shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] m-6 rounded-xl relative overflow-hidden">
+        <div class="max-md:order-1  bg-gray-50 h-full">
+          <LoginLottie/>
         </div>
 
-        <div class="flex items-center p-6 max-w-md w-full h-full mx-auto">
+        <div class="flex pt-20 p-6 max-w-md w-full h-full mx-auto">
           <form class="w-full">
             <div class="mb-12">
               <h3 class="text-blue-500 lg:text-3xl text-2xl font-extrabold max-md:text-center">Create an account</h3>

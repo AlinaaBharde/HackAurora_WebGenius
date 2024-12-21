@@ -558,7 +558,7 @@ function Task() {
     };
 
     return (
-        <div className='px-12 py-6 w-full'>
+        <div className=' py-6 w-full' style={{paddingLeft:80, width:1150,maxHeight: 'calc(100vh )', overflowY: 'auto'}}>
             <div className="flex items-center justify-between mb-6">
                 <h1 className='text-xl text-gray-800 flex justify-start items-center space-x-2.5'>
                     <span>{title.slice(0, 25)}{title.length > 25 && '...'}</span>

@@ -6,18 +6,18 @@ const LocalStrategy = require("passport-local").Strategy;
 const authModel = require("./Models/Model");
 const bcrypt = require("bcrypt");
 
-const googleCredentials = {
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:8080/google/callback",
-};
+// const googleCredentials = {
+//   clientID: process.env.GOOGLE_CLIENT_ID,
+//   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//   callbackURL: "http://localhost:8080/google/callback",
+// };
 
-const fbCredentials = {
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL: "http://localhost:8080/facebook/callback",
-  profileFields: ["id", "email", "displayName", "picture.type(large)"],
-};
+// const fbCredentials = {
+//   clientID: process.env.FACEBOOK_CLIENT_ID,
+//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//   callbackURL: "http://localhost:8080/facebook/callback",
+//   profileFields: ["id", "email", "displayName", "picture.type(large)"],
+// };
 
 const callback = async function (accessToken, refreshToken, profile, cb) {
   // console.log(profile);
@@ -76,8 +76,8 @@ const LocalStrategycallback = (email, password, done) => {
     });
 };
 
-passport.use(new GoogleStrategy(googleCredentials, callback));
-passport.use(new FacebookStrategy(fbCredentials, callback2));
+// passport.use(new GoogleStrategy(googleCredentials, callback));
+// passport.use(new FacebookStrategy(fbCredentials, callback2));
 passport.use(
   new LocalStrategy({ usernameField: "email" }, LocalStrategycallback)
 );

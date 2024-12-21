@@ -201,6 +201,7 @@ import LoginPage from "./pages/LoginSW";
 import AppLayout from "./components/taskManager/AppLayout";
 import KeshavPage from "./pages/KeshavPage";
 import { Toaster } from "react-hot-toast";
+import MainNote from "./components/DashBoardCom/MainNote";
 
 
 // videoSDK from sanskar
@@ -231,14 +232,24 @@ function App() {
           <Route path="/ResetPass/:id/:token" element={<ResetPass toast={toast} />} />
 
           {/* Dashboard Routes */}
-          <Route
+          {/* <Route
             path="/Home"
             element={
               <Home Projects={Projects}>
                 <Dashboard notes={notes} setNotes={setNotes} Projects={Projects} setProjects={setProjects} todo={todo} setTodo={setTodo} />
               </Home>
             }
-          >
+          > */}
+          <Route path="/Home" element={<Home Projects={Projects} />}>
+  <Route index element={<Dashboard 
+    notes={notes} 
+    setNotes={setNotes} 
+    Projects={Projects} 
+    setProjects={setProjects} 
+    todo={todo} 
+    setTodo={setTodo} 
+  />} />
+{/* </Route> */}
             <Route path="/Home/todos" element={<Todo toast={toast} todo={todo} setTodo={setTodo} />} />
             <Route path="/Home/notes" element={<Notes notes={notes} setNotes={setNotes} toast={toast} />} />
             <Route path="/Home/Project" element={<Project toast={toast} Projects={Projects} setProjects={setProjects} />} />

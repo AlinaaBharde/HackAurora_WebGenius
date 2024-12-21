@@ -274,3 +274,39 @@ form h1 {
 .Toastify__close-button > svg {
   filter: brightness(200%);
 }
+/* Centering the navbar items */
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure navbar takes the full height of the viewport */
+  background-color: #759578; /* Example background color */
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 15px; /* Space between the icons */
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Change icon color and scale on hover */
+.nav-icon:hover {
+  background-color: #4c6ef5; /* Change the background on hover */
+  transform: scale(1.1); /* Scale up the icon slightly */
+}
+
+.nav-icon:hover svg {
+  fill: white; /* Change icon color on hover */
+}
+
+/* Adding hover effect for icons */
+.nav-left .nav-icon svg {
+  transition: transform 0.3s ease, fill 0.3s ease;
+}

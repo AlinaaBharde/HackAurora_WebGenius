@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { LuListTodo } from "react-icons/lu";
 import { IoCalendarNumber } from "react-icons/io5";
+import { IoMdDocument } from "react-icons/io";
 import { FaRegNoteSticky } from "react-icons/fa6";
 import axios from "axios";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
@@ -16,6 +17,9 @@ const Navbar = () => {
     Aos.init({ duration: 800 });
   }, []);
 
+  function handleClick(){
+    window.location.href = "http://localhost:5173";
+  }
   function openTodo() {
     navigate("/Home/todos");
   }
@@ -55,6 +59,9 @@ const Navbar = () => {
       </button>
       <button onClick={openNotes} className="nav-icon skull">
         <FaRegNoteSticky size={20} color="white" />
+      </button>
+      <button onClick={handleClick} className="nav-icon skull">
+        <IoMdDocument size={20} color="white"/>
       </button>
       <button className="nav-icon skull" onClick={logOut}>
         <BiLogOut size={22} color="white" />

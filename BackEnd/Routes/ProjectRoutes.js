@@ -2,7 +2,7 @@ const ProjectRoutes = require("express").Router();
 const dataModel = require("../Models/DataModel");
 
 ProjectRoutes.get("/getProject", async (req, res) => {
-  const { _id } = req.user;
+  const { _id } = 'sanskar'
   const newProject = new dataModel({
     _id: _id,
   });

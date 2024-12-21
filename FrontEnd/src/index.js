@@ -11,11 +11,11 @@ import { useFirebase } from './context/FirebaseSW';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <BrowserRouter>
-    <FireBaseProvider>
-      <App />
-    </FireBaseProvider>
-  </BrowserRouter>
+
+  <FireBaseProvider>
+    <App />
+  </FireBaseProvider>
+
 
 );
 

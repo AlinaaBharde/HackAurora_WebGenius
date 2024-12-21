@@ -8,114 +8,103 @@ import Calendar from "./Calendar/Calendar";
 import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
+// import React, { useState, useEffect } from "react";
+// import Aos from "aos";
+// import TypeWriter from "typewriter-effect";
+// import { IoMdNotifications } from "react-icons/io";
+// import { TfiReload } from "react-icons/tfi";
+// import DarkMode from "./DarkMode";
+// import Notification from "./Notification";
+// import Calendar from "./Calendar";
 
 const Profile = ({ Projects }) => {
-  const [quote, setQuote] = useState();
-  const [author, setAuthor] = useState();
   const [user, setUser] = useState();
   const [upcomingProjects, setUpcomingProjects] = useState([]);
-  const [dialog, setDialog] = useState({
-    isLoading: false,
-  });
+  const [dialog, setDialog] = useState({ isLoading: false });
 
-  axios.defaults.withCredentials = true;
-  useEffect(() => {
-    Aos.init({ duration: 1200 });
-    fetch("http://api.quotable.io/random")
-      .then((res) => res.json())
-      .then((quotes) => {
-        setQuote(quotes.content);
-        setAuthor(quotes.author);
-      });
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/getUser`)
-      .then((res) => {
-        // console.log(res.data);
-        setUser(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const predefinedQuotes = [
+    {
+      quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+      author: "Nelson Mandela",
+    },
+    { quote: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+    { quote: "If life were predictable it would cease to be life, and be without flavor.", author: "Eleanor Roosevelt" },
+    { quote: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+  ];
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/Project/getProject`)
-      .then((res) => {
-        let temp = res.data.filter(
-          (obj) =>
-            obj.done === false &&
-            obj.Project.deadline === new Date().toISOString().split("T")[0]
-        );
-        setUpcomingProjects(temp);
-      })
-      .catch((err) => console.log(err));
-  }, [Projects]);
+  const QuoteComponent = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log(upcomingProjects);
+    const reloadQuote = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % predefinedQuotes.length);
+    };
 
-  const reloadQuote = () => {
-    fetch("http://api.quotable.io/random")
-      .then((res) => res.json())
-      .then((quotes) => {
-        setQuote(quotes.content);
-        setAuthor(quotes.author);
-      });
-  };
-
-  function openNotifi() {
-    setDialog({ isLoading: true });
-  }
-  function closeNotifi() {
-    setDialog({ isLoading: false });
-  }
-  return (
-    <React.Fragment>
-      <div className="profile" data-aos="fade-left">
-        <div className="profile-div">
-          <DarkMode />
-          <button
-            className={`${upcomingProjects.length ? " bell" : ""}`}
-            onClick={openNotifi}
-          >
-            <span id="noti-count">{upcomingProjects.length}</span>
-            <span>
-              <IoMdNotifications size={25} color="#3081D0" />
-            </span>
+    const { quote, author } = predefinedQuotes[currentIndex];
+    return (
+      <div className="quote-div" data-aos="zoom-in">
+        <h3>
+          <TypeWriter
+            options={{
+              autoStart: true,
+              loop: true,
+              delay: 100,
+              strings: [`" ${quote} "`],
+            }}
+          />
+        </h3>
+        <hr />
+        <div className="quote-footer">
+          <h4 id="auth-name"> - {author}</h4>
+          <button onClick={reloadQuote}>
+            <TfiReload color="orangered" size={18} />
           </button>
-          <img
-            title={user && `${user.userName}`}
-            id="prof-img"
-            src={user && `${user.picUrl}`}
-            alt=""
-          />
-        </div>
-        {dialog.isLoading && (
-          <Notification
-            closeNotifi={closeNotifi}
-            upcomingProjects={upcomingProjects}
-          />
-        )}
-        <Calendar />
-        <div className="quote-div" data-aos="zoom-in">
-          <h3>
-            <TypeWriter
-              options={{
-                autoStart: true,
-                loop: true,
-                delay: 100,
-                strings: [`" ${quote} "`],
-              }}
-            />
-          </h3>
-          <hr />
-          <div className="quote-footer">
-            <h4 id="auth-name"> - {author}</h4>
-            <button onClick={reloadQuote}>
-              <TfiReload color="orangered" size={18} />
-            </button>
-          </div>
         </div>
       </div>
-    </React.Fragment>
+    );
+  };
+
+  const openNotifi = () => {
+    setDialog({ isLoading: true });
+  };
+
+  const closeNotifi = () => {
+    setDialog({ isLoading: false });
+  };
+
+  useEffect(() => {
+    Aos.init({ duration: 1200 });
+  }, []);
+
+  return (
+    <div className="profile" data-aos="fade-left">
+      <div className="profile-div">
+        <DarkMode />
+        <button
+          className={`${upcomingProjects.length ? " bell" : ""}`}
+          onClick={openNotifi}
+        >
+          <span id="noti-count">{upcomingProjects.length}</span>
+          <span>
+            <IoMdNotifications size={25} color="#3081D0" />
+          </span>
+        </button>
+        <img
+          title={user && `${user.userName}`}
+          id="prof-img"
+          src={user && `${user.picUrl}`}
+          alt=""
+        />
+      </div>
+      {dialog.isLoading && (
+        <Notification
+          closeNotifi={closeNotifi}
+          upcomingProjects={upcomingProjects}
+        />
+      )}
+      <Calendar />
+      <QuoteComponent />
+    </div>
   );
 };
 

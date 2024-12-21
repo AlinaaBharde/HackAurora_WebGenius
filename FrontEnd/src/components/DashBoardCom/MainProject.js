@@ -54,7 +54,7 @@ const MainProject = ({ Projects, setProjects }) => {
             <p id="two"></p>
             <p id="three"></p>
           </div>
-          Some of your upcoming Projects (readonly)...
+          Some of your upcoming Projects (read-only)...
           <br />
           <br />
           <FaHandPointRight size={30} style={{ marginLeft: "50%" }} />

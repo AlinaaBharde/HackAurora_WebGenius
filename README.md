@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Project MANAGER - MERN 
 
@@ -154,3 +155,7 @@ We appreciate your interest in our project and hope that you find it useful. You
 
 
 
+=======
+# HackAurora_WebGenius
+Hackathon project on Remote Work Collaboration Tool
+>>>>>>> 9fcc2b83dc7c2c4df3485744691b37f7b4b044f4

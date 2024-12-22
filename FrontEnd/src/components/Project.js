@@ -5,6 +5,8 @@ import "./styles/Project.css";
 import Aos from "aos";
 import axios from "axios";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 
 const Project = ({ toast, Projects, setProjects }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,7 +16,7 @@ const Project = ({ toast, Projects, setProjects }) => {
     priority: "",
     deadline: "",
   });
-
+ const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -161,23 +163,24 @@ const Project = ({ toast, Projects, setProjects }) => {
               </tr>
             </thead>
             <tbody>
-              {comingFilteredItems.map((eachProject) => (
-                <tr key={eachProject.id}>
-                  <td>{eachProject.Project.ProjectName}</td>
-                  <td>{eachProject.Project.priority}</td>
-                  <td>{eachProject.Project.deadline}</td>
+              {/* {comingFilteredItems.map((eachProject) => ( */}
+                <tr key={1} onClick={() => navigate("/task")}>
+                  <td>Project 1</td>
+                  <td>Average</td>
+                  <td>3 months</td>
                   <td>
-                    {!eachProject.done && (
+                    {/* {!eachProject.done && (
                       <button
                         id="done-bt"
                         onClick={() => addToComplete(eachProject.id)}
                       >
                         done
                       </button>
-                    )}
+                    )} */}
+                    In Progress
                   </td>
                 </tr>
-              ))}
+              {/* ))} */}
             </tbody>
           </table>
         </div>

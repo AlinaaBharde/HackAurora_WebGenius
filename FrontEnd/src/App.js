@@ -206,6 +206,7 @@ import MainNote from "./components/DashBoardCom/MainNote";
 
 // videoSDK from sanskar
 import VideoSW from "./pages/VideoSW"
+import VRPage from "./VRPage";
 
 
 
@@ -253,9 +254,10 @@ function App() {
             <Route path="/Home/todos" element={<Todo toast={toast} todo={todo} setTodo={setTodo} />} />
             <Route path="/Home/notes" element={<Notes notes={notes} setNotes={setNotes} toast={toast} />} />
             <Route path="/Home/Project" element={<Project toast={toast} Projects={Projects} setProjects={setProjects} />} />
+          <Route path="/Home/video" element={<VideoSW />} />
           </Route>
+          <Route path="/vr" element={<VRPage/>}/>
           
-          <Route path="/video" element={<VideoSW />} />
 
 
           {/* Task Manager Routes */}

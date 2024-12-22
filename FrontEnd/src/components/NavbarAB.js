@@ -8,6 +8,8 @@ import axios from "axios";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdVideoCall } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
+import { FaVrCardboard } from 'react-icons/fa';
+
 import icon from "../utils/icon.PNG";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -40,6 +42,9 @@ const Navbar = () => {
   }
   function gotoVideo() {
     navigate("/video");
+  }
+  function gotoVr() {
+    navigate("/vr");
   }
 
   function logOut() {
@@ -78,9 +83,12 @@ const Navbar = () => {
       <button className="nav-icon skull" onClick={gotoVideo}>
         <MdVideoCall size={20} color="white" />
       </button>
-      <button className="nav-icon skull" onClick={gotoVideo}>
-        <MdVideoCall size={20} color="white" />
+      <button className="nav-icon skull" onClick={gotoVr}>
+        <FaVrCardboard size={20} color="white" />
       </button>
+      {/* <button className="nav-icon skull" onClick={gotoVideo}>
+        <MdVideoCall size={20} color="white" />
+      </button> */}
       <button className="nav-icon skull" onClick={logOut}>
         <BiLogOut size={22} color="white" />
       </button>

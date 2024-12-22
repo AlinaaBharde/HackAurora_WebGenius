@@ -17,7 +17,7 @@ const Dashboard = ({ notes, setNotes, Projects, setProjects, todo, setTodo }) =>
     navigate("/Home/todos");
   }
   function expandProject() {
-    navigate("/task");
+    navigate("/Home/Project");
   }
   function expandNote() {
     navigate("/Home/notes");

@@ -78,6 +78,9 @@ const Navbar = () => {
       <button className="nav-icon skull" onClick={gotoVideo}>
         <MdVideoCall size={20} color="white" />
       </button>
+      <button className="nav-icon skull" onClick={gotoVideo}>
+        <MdVideoCall size={20} color="white" />
+      </button>
       <button className="nav-icon skull" onClick={logOut}>
         <BiLogOut size={22} color="white" />
       </button>

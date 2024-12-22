@@ -17,6 +17,8 @@ import DropDownSpeaker from "../DropDownSpeaker";
 import NetworkStats from "../NetworkStats";
 import { useMeetingAppContext } from "../../MeetingAppContextDefSW";
 import { toast } from "react-toastify";
+import styles from './Component.module.css';
+
 
 export function JoiningScreen({
   participantName,
@@ -400,9 +402,9 @@ export function JoiningScreen({
 
   return (
     <div className="fixed inset-0">
-      <div className="overflow-y-auto flex flex-col flex-1 h-screen bg-gray-800">
-        <div className="flex flex-1 flex-col md:flex-row items-center justify-center md:m-[72px] m-16">
-          <div className="container grid  md:grid-flow-col grid-flow-row ">
+      <div className="overflow-y-auto flex flex-col flex-1 h-screen ">
+        <div className="flex flex-1 flex-col md:flex-row items-center w-2/3 justify-center md:m-[65px] m-16">
+          <div className=" grid  md:grid-flow-col grid-flow-row" style={{width:945,marginLeft:40,backgroundColor:"#d2e3c8",borderRadius:13,height:500}}>
             <div className="grid grid-cols-12">
               <div className="md:col-span-7 2xl:col-span-7 col-span-12">
                 <div className="flex items-center justify-center p-1.5 sm:p-4 lg:p-6">
@@ -434,7 +436,7 @@ export function JoiningScreen({
                       ) : null}
 
                       <div className="absolute xl:bottom-6 bottom-4 left-0 right-0">
-                        <div className="container grid grid-flow-col space-x-4 items-center justify-center md:-m-2">
+                        <div className=" grid grid-flow-col space-x-4 items-center justify-center md:-m-2">
                           {isMicrophonePermissionAllowed ? (
                             <ButtonWithTooltip
                               onClick={_toggleMic}

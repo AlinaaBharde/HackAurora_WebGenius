@@ -254,8 +254,9 @@ function App() {
             <Route path="/Home/notes" element={<Notes notes={notes} setNotes={setNotes} toast={toast} />} />
             <Route path="/Home/Project" element={<Project toast={toast} Projects={Projects} setProjects={setProjects} />} />
           </Route>
-
+          
           <Route path="/video" element={<VideoSW />} />
+
 
           {/* Task Manager Routes */}
           <Route path="/task" element={<TM />} />

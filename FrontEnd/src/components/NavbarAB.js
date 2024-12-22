@@ -6,6 +6,7 @@ import { IoMdDocument } from "react-icons/io";
 import { FaRegNoteSticky } from "react-icons/fa6";
 import axios from "axios";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
+import { MdVideoCall } from 'react-icons/md';
 import { useNavigate } from "react-router-dom";
 import icon from "../utils/icon.PNG";
 import Aos from "aos";
@@ -37,6 +38,10 @@ const Navbar = () => {
   function gototDashboard() {
     navigate("/Home");
   }
+  function gotoVideo() {
+    navigate("/video");
+  }
+
   function logOut() {
     axios
       .get(`${process.env.REACT_APP_API_URL}/logout`)
@@ -69,6 +74,9 @@ const Navbar = () => {
       </button>
       <button onClick={handleClick2} className="nav-icon skull">
         <FaCode size={20} color="white" />
+      </button>
+      <button className="nav-icon skull" onClick={gotoVideo}>
+        <MdVideoCall size={20} color="white" />
       </button>
       <button className="nav-icon skull" onClick={logOut}>
         <BiLogOut size={22} color="white" />

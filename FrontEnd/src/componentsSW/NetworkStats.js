@@ -40,7 +40,7 @@ const NetworkStats = ({ }) => {
 
   return (
     <>
-      <div className="flex flex-row auto-cols-max border border-[#3F4346] divide-x divide-[#3F4346] rounded-md bg-black opacity-80 h-9 ">
+      <div className="flex flex-row  text-stone-100 auto-cols-max border border-[#3F4346] divide-x divide-[#3F4346] rounded-md bg-black opacity-80 h-9 " style={{marginRight:70}}>
 
         {error === "no-error-loading" &&
           <div className="group inline-flex items-center gap-3 text-xs text-customGray-250 ml-3 ">

@@ -220,9 +220,9 @@ export const CornerDisplayName = ({
   return (
     <>
       <div
-        className="absolute bottom-2 left-2 rounded-md flex items-center justify-center p-2"
+        className="max-h-screen  z-10 absolute bottom-2 left-2 rounded-md flex items-center justify-center p-2"
         style={{
-          backgroundColor: "#00000066",
+          // backgroundColor: "#00000066",
           transition: "all 200ms",
           transitionTimingFunction: "linear",
           transform: `scale(${show ? 1 : 0})`,
@@ -245,7 +245,7 @@ export const CornerDisplayName = ({
       </div>
 
       {(webcamStream || micStream || screenShareStream) && (
-        <div>
+        <div className="max-h-screen overflow-hidden z-10">
           <div
             onClick={(e) => {
               e.stopPropagation();
@@ -347,8 +347,8 @@ export const CornerDisplayName = ({
                                 />
                               </button>
                             </div>
-                            <div className="flex">
-                              <div className="flex flex-col">
+                            {/* <div className="flex"> */}
+                              {/* <div className="flex flex-col"> */}
                                 {qualityStateArray.map((item, index) => {
                                   return (
                                     <div
@@ -390,8 +390,8 @@ export const CornerDisplayName = ({
                                     </div>
                                   );
                                 })}
-                              </div>
-                            </div>
+                              {/* </div> */}
+                            {/* </div> */}
                           </div>
                         </div>,
                         document.body
